@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>FDS Primary Button</title>
+  <link href="/assets/css/base.css" rel="stylesheet" />
+  <style>
+    .demos {
+      display: flex;
+      gap: 2rem;
+      flex-direction: column;
+      margin: 0 0 3rem 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .color-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .color-grid > * {
+      padding: 2rem;
+    }
+
+    .color-grid__dark {
+      color: #ffffff;
+      background-color: var(--fds-color-ford-blue);
+    }
+  </style>
+</head>
+<body>
+  <div id="demo"></div>
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../src/fds-primary-button/fds-primary-button.js';
+
+    render(
+      html`
+        <div class="color-grid">
+          <div class="color-grid__light">
+            <h2>LIGHT</h2>
+            <ul class="demos">
+              <li>
+                <h3>DEFAULT</h3>
+                <fds-primary-button>
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>OUTLINED</h3>
+                <fds-primary-button outlined>
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>LINK</h3>
+                <fds-primary-button link="http://google.com" label="Primary Button">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>RIGHT CHEVRON</h3>
+                <fds-primary-button chevron="right">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>LEFT CHEVRON</h3>
+                <fds-primary-button chevron="left">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>OUTLINED WITH RIGHT CHEVRON</h3>
+                <fds-primary-button outlined chevron="right">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>OUTLINED WITH LEFT CHEVRON</h3>
+                <fds-primary-button outlined chevron="left">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>DISABLED</h3>
+                <fds-primary-button disabled>
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>OUTLINED DISABLED</h3>
+                <fds-primary-button outlined disabled>
+                  Primary Button
+                </fds-primary-button>
+              </li>
+            </ul>
+          </div>
+          <div class="color-grid__dark">
+            <h2>DARK</h2>
+            <ul class="demos">
+              <li>
+                <h3>DEFUALT</h3>
+                <fds-primary-button theme="dark">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>OUTLINE</h3>
+                <fds-primary-button outlined theme="dark">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>LINK</h3>
+                <fds-primary-button link="http://google.com" label="Primary Button" theme="dark">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>RIGHT CHEVRON</h3>
+                <fds-primary-button chevron="right" theme="dark">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>LEFT CHEVRON</h3>
+                <fds-primary-button chevron="left" theme="dark">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>OUTLINED WITH RIGHT CHEVRON</h3>
+                <fds-primary-button outlined chevron="right" theme="dark">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>OUTLINED WITH LEFT CHEVRON</h3>
+                <fds-primary-button outlined chevron="left" theme="dark">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>DISABLED</h3>
+                <fds-primary-button disabled theme="dark">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+              <li>
+                <h3>OUTLINED DISABLED</h3>
+                <fds-primary-button outlined disabled theme="dark">
+                  Primary Button
+                </fds-primary-button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>

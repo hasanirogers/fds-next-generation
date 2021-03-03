@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
+import { html } from 'lit-html';
+
+import './fds-primary-button.js';
+
+export const Template = ({
+  link = null,
+  label = null,
+  outlined = false,
+  chevron = null,
+  disabled = false,
+  theme = 'light',
+  slot = 'Primary Button'
+}) => {
+  return html`
+    <fds-primary-button
+      ?link=${link}
+      ?label=${label}
+      ?outlined=${outlined}
+      ?chevron=${chevron}
+      ?disabled=${disabled}
+      theme=${theme}
+    >
+      ${slot}
+    </fds-primary-button>
+  `;
+}
+
+<Meta
+  title="Primary Button"
+  component="fds-primary-button"
+/>
+
+## Stories
+<Canvas>
+  <Story name="Default">
+    {Template.bind({})}
+  </Story>
+</Canvas>

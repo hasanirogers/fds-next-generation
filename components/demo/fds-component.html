@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>FDS Component</title>
+  <link href="/assets/css/base.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="demo"></div>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../src/fds-component/fds-component.js';
+
+    const title = 'Hello owc World!';
+    render(
+      html`
+        <fds-component .title=${title}>
+          some more light-dom
+        </fds-component>
+      `,
+      document.querySelector('#demo')
+    );
+  </script>
+</body>
+</html>
