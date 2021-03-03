@@ -1,3 +1,7 @@
+/* -------------------------------------------
+ * fonts
+ * ------------------------------------------ */
+
 @font-face {
   font-family: "FordAntenna";
   src: url("/assets/fonts/ford/antenna-regular.eot?") format("eot"), url("/assets/fonts/ford/antenna-regular.woff2") format("woff2"), url("/assets/fonts/ford/antenna-regular.woff") format("woff"), url("/assets/fonts/ford/antenna-regular.ttf") format("truetype"), url("/assets/fonts/ford/antenna-regular.svg#FordAntenna") format("svg");
@@ -48,6 +52,9 @@
   src: url("/assets/icons/ford/ford-icons.eot?") format("eot"), url("/assets/icons/ford/ford-icons.woff2") format("woff2"), url("/assets/icons/ford/ford-icons.woff") format("woff"), url("/assets/icons/ford/ford-icons.ttf") format("truetype"), url("/assets/icons/ford/ford-icons.svg#FordIcons") format("svg");
 }
 
+/* -------------------------------------------
+ * base
+ * ------------------------------------------ */
 
 html {
   --fds-color-ford-blue: #102b4e;
@@ -61,4 +68,11 @@ body {
   margin: 0;
 }
 
+/* -------------------------------------------
+ * Storybook
+ * ------------------------------------------ */
 
+ /* dark theme workaround */
+.dark-theme .docs-story {
+  background-color: var(--fds-color-ford-blue);
+}

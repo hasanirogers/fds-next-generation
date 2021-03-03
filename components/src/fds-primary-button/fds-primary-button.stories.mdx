@@ -1,5 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs/blocks';
 import { html } from 'lit-html';
+import { ifDefined } from 'lit-html/directives/if-defined';
+import dedent from 'ts-dedent';
 
 import './fds-primary-button.js';
 
@@ -10,14 +12,14 @@ export const Template = ({
   chevron = null,
   disabled = false,
   theme = 'light',
-  slot = 'Primary Button'
+  slot = 'Primary Button',
 }) => {
   return html`
     <fds-primary-button
-      ?link=${link}
-      ?label=${label}
+      link=${ifDefined(link ? link : undefined)}
+      label=${ifDefined(label ? label : undefined)}
       ?outlined=${outlined}
-      ?chevron=${chevron}
+      chevron=${ifDefined(chevron ? chevron : undefined)}
       ?disabled=${disabled}
       theme=${theme}
     >
@@ -29,6 +31,24 @@ export const Template = ({
 <Meta
   title="Primary Button"
   component="fds-primary-button"
+  argTypes={{
+    outlined: { control: 'boolean' },
+    link: { contorl: 'string' },
+    label: { control: 'string' },
+    chevron: {
+      control: {
+        type: 'select',
+        options: ['none', 'right', 'left'],
+      },
+    },
+    disabled: { control: 'boolean' },
+    theme: {
+      control: {
+        type: 'select',
+        options: ['light', 'dark'],
+      },
+    },
+  }}
 />
 
 ## Stories
@@ -36,4 +56,115 @@ export const Template = ({
   <Story name="Default">
     {Template.bind({})}
   </Story>
+  <Source
+    language="html"
+    code={dedent`
+      <fds-primary-button>
+        Primary Button
+      </fds-primary-button
+    `}
+  />
 </Canvas>
+
+<Canvas>
+  <Story name="Outlined" args={{outlined: true}}>
+    {Template.bind({})}
+  </Story>
+  <Source
+    language="html"
+    code={dedent`
+      <fds-primary-button outlined>
+        Primary Button
+      </fds-primary-button>
+    `}
+  />
+</Canvas>
+
+<Canvas>
+  <Story name="Link" args={{link: 'http://google.com', label: 'Google'}}>
+    {Template.bind({})}
+  </Story>
+  <Source
+    language="html"
+    code={dedent`
+      <fds-primary-button link="http://google.com" label="Primary Button">
+        Primary Button
+      </fds-primary-button>
+    `}
+  />
+</Canvas>
+
+<Canvas>
+  <Story name="Chevron" args={{chevron: "right"}}>
+    {Template.bind({})}
+  </Story>
+  <Source
+    language="html"
+    code={dedent`
+      <fds-primary-button chevron="right">
+        Primary Button
+      </fds-primary-button>
+    `}
+  />
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled" args={{disabled: true}}>
+    {Template.bind({})}
+  </Story>
+  <Source
+    language="html"
+    code={dedent`
+      <fds-primary-button disabled>
+        Primary Button
+      </fds-primary-button>
+    `}
+  />
+</Canvas>
+
+<div className="dark-theme">
+
+<Canvas>
+  <Story
+    name="Dark Theme (broke)"
+    args={{theme: 'dark'}}
+    decorators={[(Story) => <div style={{ margin: '3em' }}>{<Story/>}</div>]}
+  >
+    {Template.bind({})}
+  </Story>
+  <Source
+    language="html"
+    code={dedent`
+      <fds-primary-button theme="dark">
+        Primary Button
+      </fds-primary-button
+    `}
+  />
+</Canvas>
+
+</div>
+
+<!-- improper workaround because decorators are broke -->
+<div className="dark-theme">
+
+<Canvas>
+  <Story
+    name="Dark Theme (hack)"
+    args={{theme: 'dark'}}
+  >
+    {Template.bind({})}
+  </Story>
+  <Source
+    language="html"
+    code={dedent`
+      <fds-primary-button theme="dark">
+        Primary Button
+      </fds-primary-button
+    `}
+  />
+</Canvas>
+
+</div>
+
+## API
+<ArgsTable of="fds-primary-button" />

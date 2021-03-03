@@ -27,6 +27,45 @@
           "type": "Color"
         }
       ]
+    },
+    {
+      "name": "fds-primary-button",
+      "description": "A primary button.",
+      "properties": [
+        {
+          "name": "outlined",
+          "type": "Boolean",
+          "description": "Determines whether or not to show the button in an outlined style.",
+          "default": false
+        },
+        {
+          "name": "link",
+          "type": "String",
+          "description": "Links the button to an URL.",
+          "default": null
+        },
+        {
+          "name": "label",
+          "type": "String",
+          "description": "An a11y label for the button.",
+          "default": null
+        },
+        {
+          "name": "chevron",
+          "type": "String",
+          "description": "Places a chevron to the right or left of a button's text.",
+          "default": null
+        },
+        {
+          "name": "disabled",
+          "type": "Boolean",
+          "description": "Disables the button.",
+          "default": false
+        }
+      ],
+      "events": [],
+      "slots": [],
+      "cssProperties": []
     }
   ]
 }
